@@ -4,19 +4,19 @@ const Description = () => {
   const features = [
     {
       id: 1,
-      icon: "src/assets/Icon_fish.png", // Replace with actual image path
+      icon: "/assets/Icon_fish.png", // Replace with actual image path
       title: "Premium Quality",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque congue arcu",
     },
     {
       id: 2,
-      icon: "src/assets/Icon_carrot.png", // Replace with actual image path
+      icon: "/assets/Icon_carrot.png", // Replace with actual image path
       title: "Seasonal Vegetables",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque congue arcu",
     },
     {
       id: 3,
-      icon: "src/assets/Icon_lemon.png", // Replace with actual image path
+      icon: "/assets/Icon_lemon.png", // Replace with actual image path
       title: "Fresh Fruit",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque congue arcu",
     },
@@ -29,7 +29,7 @@ const Description = () => {
         {/* Left Section (Image) */}
         <div className="w-full md:w-1/2">
           <img
-            src="src/assets/chef.png" // Replace with actual path
+            src="/assets/chef.png" // Replace with actual path
             alt="Chef with Salmon Dish"
             className="w-full md:w-[500px] rounded-lg "
           />

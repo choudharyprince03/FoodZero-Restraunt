@@ -5,7 +5,7 @@ const teamMembers = [
     id: 1,
     name: "Carson Hugh",
     role: "Restaurant Manager",
-    image: "src/assets/res-manager.png",
+    image: "/assets/res-manager.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id felis in pellentesque ornare nunc.",
     imageFirst: true, // Image on the left
@@ -14,7 +14,7 @@ const teamMembers = [
     id: 2,
     name: "Jane Cooper",
     role: "Executive Chef",
-    image: "src/assets/ex-chef.png",
+    image: "/assets/ex-chef.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id felis in pellentesque ornare nunc sit. Augue habitant accumsan, ut porttitor orci a elit urna congue mi.",
     imageFirst: false, // Image on the right
@@ -56,12 +56,12 @@ const Story = () => {
             Turpis egestas ultricies purus auctor tincidunt lacus nunc.
           </p>
           <img 
-            src="src/assets/tomato-icon.png" 
+            src="/assets/tomato-icon.png" 
             alt="Tomato Icon" 
             className="absolute -top-10 left-0 w-24 opacity-50" 
           />
         </div>
-        <img src="src/assets/kitchen-chef.png" alt="Chef cooking" className="md:w-1/2 rounded-lg shadow-lg" />
+        <img src="/assets/kitchen-chef.png" alt="Chef cooking" className="md:w-1/2 rounded-lg shadow-lg" />
       </div>
 
       {/* Team Members Section */}

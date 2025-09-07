@@ -20,7 +20,7 @@ const HeroSection = () => {
         {/* Main Dish Image */}
         <div>
           <img
-            src="src/assets/Image.png"
+            src="/assets/Image.png"
             alt="Steak Dish"
             className="w-[510px] h-[500px] object-cover shadow-lg"
           />
@@ -30,17 +30,17 @@ const HeroSection = () => {
         <div className="flex mr-100 -mt-15 mb-20 justify-end w-full md:flex hidden">
           <div className="flex space-x-4">
             <img
-              src="src/assets/spices1.png"
+              src="/assets/spices1.png"
               alt="Spice 1"
               className="w-36 h-36 rounded-full"
             />
             <img
-              src="src/assets/spices2.png"
+              src="/assets/spices2.png"
               alt="Spice 2"
               className="w-36 h-36 rounded-full"
             />
             <img
-              src="src/assets/spices3.png"
+              src="/assets/spices3.png"
               alt="Spice 3"
               className="w-36 h-36 rounded-full"
             />
@@ -51,7 +51,7 @@ const HeroSection = () => {
       <div className='flex space-x-100 md:flex hidden'>
         <div>
           <img
-            src="src/assets/seafood.png"
+            src="/assets/seafood.png"
             alt="Seafood Soup"
             className="w-100 h-70 object-cover"
           />
@@ -64,7 +64,7 @@ const HeroSection = () => {
         <div className='w-65 mr-8 mb-25'>
           <p className='text-sm pb-1'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
           <img
-            src="src/assets/pepper.png"
+            src="/assets/pepper.png"
             alt="Pepper Grinders"
             className="w-65 h-100 object-cover"
           />

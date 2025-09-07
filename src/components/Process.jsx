@@ -4,7 +4,7 @@ const processSteps = [
   {
     id: 1,
     title: "Slice",
-    image: "src/assets/slice.png",
+    image: "/assets/slice.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet. Turpis egestas ultricies purus auctor tincidunt lacus nunc.",
     position: "left",
@@ -12,7 +12,7 @@ const processSteps = [
   {
     id: 2,
     title: "Pickled",
-    image: "src/assets/pickled.png",
+    image: "/assets/pickled.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet.",
     position: "right",
@@ -20,7 +20,7 @@ const processSteps = [
   {
     id: 3,
     title: "Bake",
-    image: "src/assets/bake.png",
+    image: "/assets/bake.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet.",
     position: "left",

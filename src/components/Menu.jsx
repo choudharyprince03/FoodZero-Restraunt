@@ -32,7 +32,7 @@ const Menu = () => {
     <div className="bg-white text-black px-30 md:px-30   py-20 relative">
       {/* Decorative Image */}
       <div className="absolute top-0 right-0">
-        <img src="src/assets/menuflower.png" alt="Decoration" className="w-64 md:w-100" />
+        <img src="/assets/menuflower.png" alt="Decoration" className="w-64 md:w-100" />
       </div>
 
       {/* Heading */}

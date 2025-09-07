@@ -8,21 +8,21 @@ const reviews = [
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus lorem id penatibus imperdiet. Turpis egestas ultricies purus Lorem ipsum dolor sit amet.",
     name: "Prince Choudhary",
     role: "Blogger",
-    image: "src/assets/user1.jpg", // Replace with actual image path
+    image: "/assets/user1.jpg", // Replace with actual image path
   },
   {
     id: 2,
     text: "Amazing experience! The food was top-notch and the ambiance made it even better. Will definitely visit again.",
     name: "Sophia Martinez",
     role: "Food Critic",
-    image: "src/assets/user2.jpg",
+    image: "/assets/user2.jpg",
   },
   {
     id: 3,
     text: "Absolutely loved the service and the attention to detail. Highly recommended!",
     name: "Daniel Kim",
     role: "Chef",
-    image: "src/assets/user3.jpg",
+    image: "/assets/user3.jpg",
   },
 ];
 

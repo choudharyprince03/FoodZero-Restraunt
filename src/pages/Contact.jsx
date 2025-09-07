@@ -8,7 +8,7 @@ const Contact = () => {
     <div className=" text-[#2C3A21]">
       {/* Header Section */}
       <div className="relative">
-        <img src="src/assets/Contactheader.png" className="w-full" alt="Contact" />
+        <img src="/assets/Contactheader.png" className="w-full" alt="Contact" />
         <div className="absolute top-[300px] left-[180px] transform -translate-y-1/2 text-right">
           <h1 className="text-white text-7xl font-bold">Get in Touch</h1>
           <p className="mt-4 text-white text-xl leading-relaxed max-w-lg">
@@ -42,7 +42,7 @@ const Contact = () => {
         {/* Image Section */}
         <div className="w-full md:w-1/2">
           <img 
-            src="/src/assets/contact1.png" 
+            src="/assets/contact1.png" 
             alt="Restaurant Table" 
             className=" w-3/4 pt-20"
           />
@@ -67,7 +67,7 @@ const Contact = () => {
       {/* Bottom Image Section */}
       <div className="flex justify-end px-46 pb-16">
         <img 
-          src="/src/assets/contact2.png" 
+          src="/assets/contact2.png" 
           alt="Restaurant Exterior" 
           className="   w-1/2 "
         />

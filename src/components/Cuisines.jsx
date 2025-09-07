@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const cuisines = [
-  { name: "Starters", image: "src/assets/cuisine1.png" },
-  { name: "Mains", image: "src/assets/cuisine2.png" },
-  { name: "Soups", image: "src/assets/cuisine3.png" },
+  { name: "Starters", image: "/assets/cuisine1.png" },
+  { name: "Mains", image: "/assets/cuisine2.png" },
+  { name: "Soups", image: "/assets/cuisine3.png" },
 ];
 
 const Cuisines = () => {

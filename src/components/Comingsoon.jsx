@@ -33,7 +33,7 @@ const ComingSoon = () => {
   return (
     <div
       className="fixed inset-0 bg-cover bg-center"
-      style={{ backgroundImage: "url('src/assets/Image (1).png')" }}
+      style={{ backgroundImage: "url('/assets/Image (1).png')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-[rgba(35,48,0,0.7)]"></div>

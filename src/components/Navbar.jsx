@@ -52,7 +52,7 @@ const Navbar = ({ cartItems }) => {
       
       {menuOpen && (
         <div className="fixed inset-0 bg-[#232f00] bg-cover bg-center flex flex-col items-start justify-center p-10 z-50"
-          style={{ backgroundImage: "url('src/assets/navbackground.png')" }}
+          style={{ backgroundImage: "url('/assets/navbackground.png')" }}
         >
           <div className="absolute inset-0 bg-[rgba(35,48,0,0.7)]"></div>
 
