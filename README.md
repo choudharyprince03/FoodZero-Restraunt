@@ -2,6 +2,8 @@
 
 A **responsive restaurant website** built with **React** and **Tailwind CSS**.
 
+Check out the live website here: [FoodZero Website](https://food-zero-restraunt.vercel.app/)
+
 ---
 
 ## 🛠️ Tech Stack
