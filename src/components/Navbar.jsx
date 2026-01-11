@@ -1,96 +1,74 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { FiX, FiMenu } from "react-icons/fi";
-import { FaInstagram, FaTwitter, FaFacebook, FaEnvelope, FaShoppingCart } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaFacebook, FaEnvelope } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ cartItems }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const headerItems = [
+    { name: "HOME", slug: "/" },
+    { name: "MENU", slug: "/menu" },
+    { name: "ABOUT", slug: "/about" },
+    { name: "CONTACT", slug: "/contact" },
+    { name: "RESERVATION", slug: "/reservation" },
+  ];
 
   return (
     <>
-     
-      <nav className="absolute top-0 left-0 w-full flex items-center justify-between px-12 py-6 text-white z-50">
-       
-        <div className="flex items-center space-x-6">
-          <Link to="/" className="text-4xl font-bold">FoodZero</Link>
-          <FiMenu 
-            className="text-white text-3xl cursor-pointer transition-transform duration-300 ease-in-out"
-            onClick={() => setMenuOpen(true)}
-          />
-        </div>
+      <nav className="fixed top-0 left-0 right-0 z-40 
+        flex items-center justify-between h-16 px-8 
+        bg-[#232F00]/60 backdrop-blur-xl 
+        text-white text-xl font-semibold">
 
-       
-        <div className="hidden md:flex items-center space-x-10">
-
-          <Link 
-            to="/reservation"
-            className="border border-white px-9 py-3 text-2xl hover:bg-white hover:text-[#3f4422] transition"
+        <div className="ml-12 flex items-center gap-300">
+          <div
+            onClick={() => navigate("/")}
+            className="cursor-pointer text-2xl tracking-wide"
           >
-            Reservations
-          </Link>
-          {/* Login/Signup button goes here */}
-          <Link
-           to="/login"
-           className="p-4 text-2xl hover:text-gray-300"
+            FoodZero
+          </div>
 
-           >
-            Login / Sign up
-          </Link>
-
-
-          <Link to="/cart" className="relative">
-            <FaShoppingCart className="text-3xl cursor-pointer hover:text-gray-300 transition" />
-            {cartItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-sm rounded-full px-2">
-                {cartItems}
-              </span>
-            )}
-          </Link>
+          <button onClick={() => setIsMenuOpen(true)}>
+            <FiMenu size={28} />
+          </button>
         </div>
       </nav>
 
-      
-      {menuOpen && (
-        <div className="fixed inset-0 bg-[#232f00] bg-cover bg-center flex flex-col items-start justify-center p-10 z-50"
-          style={{ backgroundImage: "url('/assets/navbackground.png')" }}
-        >
-          <div className="absolute inset-0 bg-[rgba(35,48,0,0.7)]"></div>
+      {/* FULLSCREEN MENU */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-lg z-50 flex flex-col items-center justify-center">
 
-        
-          <FiX 
-            className="absolute top-6 left-6 text-4xl cursor-pointer text-white"
-            onClick={() => setMenuOpen(false)}
-          />
+          {/* Close Button */}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-6 right-6 text-white"
+          >
+            <FiX size={36} />
+          </button>
 
-     
-          <div className="pl-40 text-white flex-col text-5xl space-y-10 z-10">
-            {["HOME", "MENU", "ABOUT", "CONTACT"].map((item, index) => (
-              <Link 
-                key={index} 
-                to={`/${item.toLowerCase()}`} 
-                className="block hover:text-gray-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item}
-              </Link>
+          {/* MENU LINKS */}
+          <ul className="text-center space-y-8 mb-20">
+            {headerItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.slug}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-5xl font-semibold text-white hover:text-gray-300 transition"
+                >
+                  {item.name}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
-       
-          <div className="absolute text-white bottom-10 right-10 text-right">
-            <h3 className="text-xl font-bold">Contact</h3>
-            <p className="text-sm mt-2">+86 852 346 000</p>
-            <p className="text-sm">info@foodzero.com</p>
-            <p className="text-sm mt-2">1959 Sepulveda Blvd, Culver City, CA, 90230</p>
-
-         
-            <div className="flex space-x-6 mt-3 text-white">
-              {[FaInstagram, FaTwitter, FaFacebook, FaEnvelope].map((Icon, idx) => (
-                <a key={idx} href="#" className="text-2xl hover:text-gray-400">
-                  <Icon />
-                </a>
-              ))}
-            </div>
+          {/* SOCIAL ICONS */}
+          <div className="flex items-center gap-10 text-white mt-10">
+            <FaInstagram className="hover:text-gray-300 transition cursor-pointer" size={36} />
+            <FaTwitter className="hover:text-gray-300 transition cursor-pointer" size={36} />
+            <FaFacebook className="hover:text-gray-300 transition cursor-pointer" size={36} />
+            <FaEnvelope className="hover:text-gray-300 transition cursor-pointer" size={36} />
           </div>
         </div>
       )}

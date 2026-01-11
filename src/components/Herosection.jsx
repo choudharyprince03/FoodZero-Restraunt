@@ -22,12 +22,12 @@ const HeroSection = () => {
           <img
             src="/assets/Image.png"
             alt="Steak Dish"
-            className="w-[510px] h-[500px] object-cover shadow-lg"
+            className="w-[750px] h-[500px] object-cover shadow-lg"
           />
         </div>
         
         {/* Spices Section */}
-        <div className="flex mr-100 -mt-15 mb-20 justify-end w-full md:flex hidden">
+        <div className="flex mr-90 -mt-15 mb-20 justify-end w-full md:flex hidden">
           <div className="flex space-x-4">
             <img
               src="/assets/spices1.png"

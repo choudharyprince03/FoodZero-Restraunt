@@ -1,106 +1,89 @@
-import React, { useState } from "react";
+import React from "react";
+
+const MENU_DATA = {
+  starters: [
+    { id: 1, name: "Grilled Okra & Tomatoes", price: 20 },
+    { id: 2, name: "Cucumber Garden Salad", price: 8 },
+    { id: 3, name: "Basil Ricotta Pancakes", price: 12 },
+    { id: 4, name: "Charred Artichoke Hearts", price: 14 },
+    { id: 5, name: "Lemon Thyme Bruschetta", price: 10 },
+    { id: 6, name: "Olive Oil Roasted Peppers", price: 11 },
+  ],
+  mains: [
+    { id: 7, name: "Snow White Cod Fillet", price: 20 },
+    { id: 8, name: "Steak with Rosemary Butter", price: 22 },
+    { id: 9, name: "Lamb Chops & Herb Jus", price: 26 },
+    { id: 10, name: "Forest Mushroom Risotto", price: 19 },
+    { id: 11, name: "Herb Roasted Chicken", price: 18 },
+    { id: 12, name: "Truffle Cream Pasta", price: 21 },
+  ],
+  pastries: [
+    { id: 13, name: "Natural Wine Pairing", price: 168 },
+    { id: 14, name: "Whisky Flight", price: 90 },
+    { id: 15, name: "Lavender Honey Cheesecake", price: 14 },
+    { id: 16, name: "Dark Chocolate Olive Torte", price: 13 },
+    { id: 17, name: "Vanilla Rose Crème Tart", price: 12 },
+    { id: 18, name: "Almond Fig Crostata", price: 11 },
+  ],
+};
 
 const Menupage = () => {
-  const menuItems = {
-    starters: [
-      { id: 1, name: "Grilled Okra and Tomatoes", price: 20 },
-      { id: 2, name: "Cucumber Salad", price: 8 },
-      { id: 3, name: "Basil Pancakes", price: 12 },
-    ],
-    mains: [
-      { id: 4, name: "Deep Sea Snow White Cod Fillet", price: 20 },
-      { id: 5, name: "Steak With Rosemary Butter", price: 22 },
-      { id: 6, name: "Steaks with Grilled Kimchi", price: 20 },
-    ],
-    pastries: [
-      { id: 7, name: "Wine Pairing", price: 98 },
-      { id: 8, name: "Natural Wine Pairing", price: 168 },
-      { id: 9, name: "Whisky Flyer", price: 90 },
-    ],
-  };
+  const format = (v) => `$${v.toFixed(2)}`;
 
-  // State to track quantities per dish by id
-  const [quantities, setQuantities] = useState({});
+  const renderSection = (title, items) => (
+    <div className="mb-24">
+      <h2 className="text-3xl font-semibold mb-10 border-b border-[#aab7a2] pb-4">
+        {title}
+      </h2>
 
-  // Increase quantity for a dish
-  const increaseQuantity = (id) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: (prev[id] || 0) + 1,
-    }));
-  };
-
-  // Decrease quantity for a dish
-  const decreaseQuantity = (id) => {
-    setQuantities((prev) => {
-      const newQty = (prev[id] || 0) - 1;
-      return { ...prev, [id]: newQty > 0 ? newQty : 0 };
-    });
-  };
-
-  // Format price as USD or your currency
-  const formatPrice = (value) => `$${value.toFixed(2)}`;
-
-  // Render dishes with quantity controls
-  const renderDish = (item) => {
-    const qty = quantities[item.id] || 0;
-    return (
-      <div key={item.id} className="mb-6 p-4 border rounded flex justify-between items-center">
-        <div>
-          <h3 className="text-xl font-semibold">{item.name}</h3>
-          <p className="text-lg text-gray-600">Unit Price: {formatPrice(item.price)}</p>
-          {qty > 0 && (
-            <p className="text-lg font-bold mt-1">
-              Total: {formatPrice(item.price * qty)}
-            </p>
-          )}
-        </div>
-
-        <div className="flex items-center space-x-3">
-          <button
-            onClick={() => decreaseQuantity(item.id)}
-            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 text-xl font-bold"
-            disabled={qty === 0}
-            aria-label={`Decrease quantity of ${item.name}`}
-          >
-            −
-          </button>
-
-          <span className="text-2xl w-8 text-center">{qty}</span>
-
-          <button
-            onClick={() => increaseQuantity(item.id)}
-            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 text-xl font-bold"
-            aria-label={`Increase quantity of ${item.name}`}
-          >
-            +
-          </button>
-
-          <button
-            onClick={() =>
-              alert(`Added ${qty} x ${item.name} to cart!`)
-            }
-            disabled={qty === 0}
-            className="ml-4 px-4 py-2 bg-amber-400 text-white font-semibold rounded hover:bg-amber-500 disabled:opacity-50 transition"
-          >
-            Add to Cart
-          </button>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10">
+        {items.map((item) => (
+          <div key={item.id} className="border-t border-[#c6d1bf] pt-5">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-medium tracking-wide">
+                {item.name}
+              </h3>
+              <span className="text-lg text-[#4d5e4d]">
+                {format(item.price)}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
-    );
-  };
+    </div>
+  );
 
   return (
-    <div className="container mx-auto px-6 py-12">
-      <h2 className="text-4xl font-bold mb-8">Starters</h2>
-      {menuItems.starters.map(renderDish)}
+    <section className="relative bg-[#f6f7f2] text-[#2f3a2f] py-28 overflow-hidden">
 
-      <h2 className="text-4xl font-bold mt-12 mb-8">Mains</h2>
-      {menuItems.mains.map(renderDish)}
+      {/* 🌿 Botanical Decorations from Web */}
+      <img src="https://www.svgrepo.com/show/530173/leaf.svg"
+        className="absolute top-0 left-0 w-72 opacity-15 z-[-1]" />
 
-      <h2 className="text-4xl font-bold mt-12 mb-8">Pastries & Drinks</h2>
-      {menuItems.pastries.map(renderDish)}
-    </div>
+      <img src="https://www.svgrepo.com/show/530166/olive-branch.svg"
+        className="absolute top-0 right-0 w-72 opacity-15 z-[-1]" />
+
+      <img src="https://www.svgrepo.com/show/530169/flower.svg"
+        className="absolute bottom-0 left-0 w-80 opacity-15 z-[-1]" />
+
+      <img src="https://www.svgrepo.com/show/530168/flower-2.svg"
+        className="absolute bottom-0 right-0 w-80 opacity-15 z-[-1]" />
+
+      <img src="https://www.svgrepo.com/show/530165/vine.svg"
+        className="absolute bottom-[-60px] left-1/2 -translate-x-1/2 w-[520px] opacity-10 z-[-1]" />
+
+      <div className="relative max-w-6xl mx-auto px-10">
+
+        <h1 className="text-5xl font-serif font-bold mb-24 text-[#3c4a3c] text-center">
+          Our Menu
+        </h1>
+
+        {renderSection("Starters", MENU_DATA.starters)}
+        {renderSection("Mains", MENU_DATA.mains)}
+        {renderSection("Pastries & Drinks", MENU_DATA.pastries)}
+
+      </div>
+    </section>
   );
 };
 

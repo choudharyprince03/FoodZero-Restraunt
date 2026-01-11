@@ -1,59 +1,83 @@
 import React from "react";
 
 const menuItems = [
-  { id: 1, 
-    name: "Deep Sea Snow White Cod Fillet", 
-    price: "$20", 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." 
+  {
+    id: 1,
+    name: "Deep Sea Snow White Cod Fillet",
+    price: 20,
+    description: "Delicately pan-seared with seasonal herbs and citrus essence."
   },
-
-  { id: 2, 
-    name: "Steak With Rosemary Butter", 
-    price: "$22", 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-   },
-
-  { id: 3, 
-    name: "Cucumber Salad", 
-    price: "$18", 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." 
+  {
+    id: 2,
+    name: "Steak with Rosemary Butter",
+    price: 22,
+    description: "Prime cut finished with house-made rosemary butter."
   },
-
-  { id: 4, 
+  {
+    id: 3,
+    name: "Cucumber Garden Salad",
+    price: 18,
+    description: "Crisp greens, pickled cucumber, and olive vinaigrette."
+  },
+  {
+    id: 4,
     name: "Natural Wine Pairing",
-     price: "$90", 
-     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." 
-    },
-
+    price: 90,
+    description: "Curated selection of organic regional wines."
+  },
 ];
 
 const Menu = () => {
   return (
-    <div className="bg-white text-black px-30 md:px-30   py-20 relative">
-      {/* Decorative Image */}
-      <div className="absolute top-0 right-0">
-        <img src="/assets/menuflower.png" alt="Decoration" className="w-64 md:w-100" />
-      </div>
+    <section className="relative bg-[#f6f7f2] text-[#2f3a2f] overflow-hidden">
 
-      {/* Heading */}
-      <h2 className="text-5xl font-bold text-left mb-6">Our Menu</h2>
-      <p className="text-gray-500 text-lg mb-20">
-        This is a section of your menu. Give your section a brief description.
-      </p>
+      {/* Decorative SVGs */}
+      <img
+        src="/assets/olive-leaf.svg"
+        className="absolute top-10 left-10 w-40 opacity-20"
+        alt=""
+      />
+      <img
+        src="/assets/vine.svg"
+        className="absolute bottom-10 right-10 w-56 opacity-20"
+        alt=""
+      />
 
-      {/* Menu Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-25  ">
-        {menuItems.map((item) => (
-          <div key={item.id} className="border-t-2 border-dotted border-black pt-4">
-            <div className="flex justify-between items-center">
-              <h3 className="text-3xl font-bold">{item.name}</h3>
-              <span className="text-xl font-bold">{item.price}</span>
+      <div className="max-w-6xl mx-auto px-10 md:px-20 py-24 relative z-10">
+
+        <h2 className="text-5xl font-serif font-bold mb-6 text-[#3c4a3c]">
+          Our Menu
+        </h2>
+
+        <p className="text-lg text-[#6a7b6a] mb-20 max-w-xl">
+          A carefully crafted selection of dishes inspired by nature, balance, and timeless flavors.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+
+          {menuItems.map((item) => (
+            <div key={item.id} className="border-t border-[#aab7a2] pt-6">
+
+              <div className="flex justify-between items-start">
+                <h3 className="text-2xl font-semibold tracking-wide">
+                  {item.name}
+                </h3>
+                <span className="text-xl font-medium text-[#4d5e4d]">
+                  ${item.price}
+                </span>
+              </div>
+
+              <p className="mt-3 text-[#667666] leading-relaxed">
+                {item.description}
+              </p>
+
             </div>
-            <p className="text-gray-500 mt-2">{item.description}</p>
-          </div>
-        ))}
+          ))}
+
+        </div>
+
       </div>
-    </div>
+    </section>
   );
 };
 

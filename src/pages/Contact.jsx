@@ -1,6 +1,6 @@
 import React from "react";
-import ReservationPage from "../components/ReservationPage";
-import Reservation from "./Reservation";
+import ReservationPage from "../components/Reservation";
+import Reservation from "./ReservationPage";
 
 const Contact = () => {
   return (

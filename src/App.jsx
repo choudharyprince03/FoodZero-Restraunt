@@ -1,32 +1,52 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import Landingpage from './pages/Landingpage';
-import Comingsoon from './components/Comingsoon';
-import Reservation from './pages/Reservation';
-import Menupage from './pages/Menupage';
-import Cart from './pages/Cart';
-import Footer from './components/Footer';
-import About from './pages/About';
-import Contact from './pages/Contact';
+
+import { Navbar, Footer } from "./components/index";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  // 🎯 Cursor position state
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  // Track cursor movement
+  useEffect(() => {
+    const handleMouseMove = (e) => setPos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Simulated loading state (no auth, no redux)
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="relative min-h-screen bg-[#f6f7f2]">
+        <div
+          style={{ transform: `translate(${pos.x - 3}px, ${pos.y - 10}px)` }}
+          className="pointer-events-none fixed w-10 h-10 rounded-full 
+                     bg-black/30 shadow-sm border border-gray-100 
+                     transition-transform duration-200 hidden lg:block"
+        />
+        <h1 className="flex justify-center items-center min-h-screen text-xl text-[#3c4a3c]">
+          Loading…
+        </h1>
+      </div>
+    );
+  }
+
   return (
-    <Router>
+    <div className="min-h-screen flex flex-col ">
       <Navbar />
-      <Routes>
-        <Route path='/home' element={<Landingpage />} />
-        <Route path='/' element={<Landingpage />} />
-        {/* <Route path='/' element={<Comingsoon />} /> */}
-        <Route path='/reservation' element={<Reservation />} /> 
-        <Route path='/about' element={<About />} />
-        <Route path='/menu' element={<Menupage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <main className="flex-grow w-full">
+        <Outlet />
+      </main>
       <Footer />
-    </Router>
+    </div>
   );
 };
 
