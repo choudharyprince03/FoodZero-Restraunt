@@ -17,12 +17,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-40 
-        flex items-center justify-between h-16 px-8 
-        bg-[#232F00]/60 backdrop-blur-xl 
-        text-white text-xl font-semibold">
+      <nav className="fixed top-0 left-0 right-0 z-40 h-16 
+        bg-[#232F00]/60 backdrop-blur-xl text-white text-xl font-semibold">
 
-        <div className="ml-12 flex items-center gap-300">
+        <div className="mx-10 flex items-center h-full px-8">
+
+          {/* Logo */}
           <div
             onClick={() => navigate("/")}
             className="cursor-pointer text-2xl tracking-wide"
@@ -30,9 +30,24 @@ const Navbar = () => {
             FoodZero
           </div>
 
-          <button onClick={() => setIsMenuOpen(true)}>
-            <FiMenu size={28} />
-          </button>
+          {/* Right side controls */}
+          <div className="ml-auto flex items-center space-x-6">
+
+            {/* Reservation Button (hidden on small screens) */}
+            <div
+              onClick={() => navigate("/reservation")}
+              className="hidden md:flex cursor-pointer border border-white px-4 py-1 rounded-full text-sm tracking-widest 
+                         hover:bg-white hover:text-[#232F00] transition"
+            >
+              RESERVATION
+            </div>
+
+            {/* Hamburger Menu */}
+            <button onClick={() => setIsMenuOpen(true)}>
+              <FiMenu size={28} />
+            </button>
+
+          </div>
         </div>
       </nav>
 
@@ -40,7 +55,6 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-lg z-50 flex flex-col items-center justify-center">
 
-          {/* Close Button */}
           <button
             onClick={() => setIsMenuOpen(false)}
             className="absolute top-6 right-6 text-white"
@@ -48,7 +62,6 @@ const Navbar = () => {
             <FiX size={36} />
           </button>
 
-          {/* MENU LINKS */}
           <ul className="text-center space-y-8 mb-20">
             {headerItems.map((item) => (
               <li key={item.name}>
@@ -63,12 +76,11 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* SOCIAL ICONS */}
           <div className="flex items-center gap-10 text-white mt-10">
-            <FaInstagram className="hover:text-gray-300 transition cursor-pointer" size={36} />
-            <FaTwitter className="hover:text-gray-300 transition cursor-pointer" size={36} />
-            <FaFacebook className="hover:text-gray-300 transition cursor-pointer" size={36} />
-            <FaEnvelope className="hover:text-gray-300 transition cursor-pointer" size={36} />
+            <FaInstagram size={36} className="hover:text-gray-300 transition cursor-pointer" />
+            <FaTwitter size={36} className="hover:text-gray-300 transition cursor-pointer" />
+            <FaFacebook size={36} className="hover:text-gray-300 transition cursor-pointer" />
+            <FaEnvelope size={36} className="hover:text-gray-300 transition cursor-pointer" />
           </div>
         </div>
       )}
