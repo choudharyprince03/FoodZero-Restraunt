@@ -1,3 +1,6 @@
+// https://script.google.com/macros/s/AKfycbwpZdhqMlXfrNRZJKuGYRFgAgBGaFKgxCTjx_jPaId9ElnwdcWaheRv7NTVqNRfE-OwzA/exec
+
+
 import React, { useState } from "react";
 
 const Reservation = () => {
@@ -30,20 +33,52 @@ const Reservation = () => {
   };
 
   // Handle Booking
-  const handleBooking = () => {
-    const { firstName, lastName, email, phone, date } = formData;
-    if (!firstName || !lastName || !email || !phone || !date) {
-      alert("Please fill in all fields.");
-      return;
+const handleBooking = async () => {
+  const { firstName, lastName, email, phone, date } = formData;
+
+  if (!firstName || !lastName || !email || !phone || !date) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      "/api/booking",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      setShowPopup(true);
+
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 3000);
+
+      // Optional: reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        date: "",
+        time: "6:00 PM",
+        persons: "2",
+      });
     }
+  } catch (error) {
+    alert("Something went wrong. Please try again.");
+    console.error(error);
+  }
+};
 
-    setShowPopup(true);
-
-    // Hide the popup automatically after 3 seconds
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 3000);
-  };
 
   return (
     <div className="py-24 flex flex-col items-center justify-center bg-[#232F00] text-[#2C3A21] px-6">
