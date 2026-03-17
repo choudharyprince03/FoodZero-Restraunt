@@ -43,7 +43,7 @@ const handleBooking = async () => {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwpZdhqMlXfrNRZJKuGYRFgAgBGaFKgxCTjx_jPaId9ElnwdcWaheRv7NTVqNRfE-OwzA/exec",
+      "https://script.google.com/macros/s/AKfycbx1yVvLmXUBgGLCwUYvqD9j76gWr52mMt4E_K9rcImoUSUg9MSW55sF4-Opn3-YLE-LpA/exec",
       {
         method: "POST",
         headers: {
