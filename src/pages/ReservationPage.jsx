@@ -43,7 +43,7 @@ const handleBooking = async () => {
 
   try {
     const response = await fetch(
-      "/api/booking",
+      import.meta.env.VITE_SHEET_LINK || "/api/booking",
       {
         method: "POST",
         headers: {
