@@ -40,9 +40,9 @@ const Reservation = () => {
   }
 
   setLoading(true);
-
+  
   try {
-    await fetch(URL, {
+    await fetch("https://script.google.com/macros/s/AKfycbx1yVvLmXUBgGLCwUYvqD9j76gWr52mMt4E_K9rcImoUSUg9MSW55sF4-Opn3-YLE-LpA/exec", {
       method: "POST",
       mode: "no-cors", // 🔥 FIX
       headers: {
@@ -192,3 +192,5 @@ const Reservation = () => {
 };
 
 export default Reservation;
+
+//https://script.google.com/macros/s/AKfycbx1yVvLmXUBgGLCwUYvqD9j76gWr52mMt4E_K9rcImoUSUg9MSW55sF4-Opn3-YLE-LpA/exec
